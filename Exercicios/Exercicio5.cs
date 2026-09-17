@@ -1,12 +1,22 @@
 using System;
-using BibliotecaFuncoes;
+using Biblioteca;
 
 /*5. Escreva um programa que sorteio, aleatoriamente, N números e armazene estes em um vetor. Em seguida, o
 usuário digita um número e seu programa em C# deve acusar se o número digitado está no vetor ou não. Se
 estiver, diga a posição que está. A verificação deve ser realizada a partir de uma função.*/
 class Exercicio5
 {
-
+     static int verificarNumero(int[] vetor, int numeroBuscar)
+    {
+         for(int i = 0; i < vetor.Length; i++)
+        {
+           if(vetor[i] == numeroBuscar)
+            {
+                return i;
+            }
+        }
+      return -1;
+    }
     static void Main(){
 
     Console.Write("Digite a quantidade de elementos do vetor: ");
@@ -14,19 +24,13 @@ class Exercicio5
 
     int[] vetor = new int[numero]; //criando o meu vetor
 
-    Random aleatorio = new Random();
+    BibliotecaVetor.gerarVetor(vetor);
+    BibliotecaVetor.mostrarVetor(vetor);
 
-    //Aqui é onde os numeros do meu vetor será sorteados aleatoriamente
-    for(int i =0; i < numero; i++)
-        {
-            vetor[i] = aleatorio.Next(1, 100);
-        }
-
-
-        Console.Write("Digite o numero que você quer procurar:  ");
+        Console.WriteLine("Digite o numero que você quer procurar:  ");
         int numeroBuscar = int.Parse(Console.ReadLine());
 
-        int posicao = Vetor.verificarNumero(vetor, numeroBuscar);
+        int posicao = verificarNumero(vetor, numeroBuscar);
 
         if(posicao != -1)
             {

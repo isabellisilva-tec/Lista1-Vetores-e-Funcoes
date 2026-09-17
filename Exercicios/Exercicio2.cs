@@ -1,12 +1,25 @@
 using System;
-using BibliotecaFuncoes;
+using Biblioteca;
 /*2. Escreva um programa que leia ou gere um vetor de N elementos inteiros. 
 A seguir, crie uma função que receba esse vetor e conte quantos valores impares 
 existem no vetor. Retorne a quantidade de impares.*/
 
 class Exercicio2
 {
-   
+      static int quantidadeImpares(int[] vetor)
+        {
+            int quantidade = 0;
+
+            for(int i = 0; i<vetor.Length; i++)
+            {
+                if(vetor[i] % 2 != 0)
+                {
+                    quantidade++;
+                }
+            }
+            return quantidade;
+        }
+
     static void Main()
     {
         Console.WriteLine("Digite a quantidade de elementos do vetor: ");
@@ -14,20 +27,14 @@ class Exercicio2
 
         int[] vetor = new int[N];
 
-        for(int i = 0; i<vetor.Length; i++)
-        {
-            Console.Write($"vetor[{i}]: ");
-            vetor[i] = int.Parse(Console.ReadLine());
-        }
-
-        Console.WriteLine("Dados do vetor: ");
-        for(int i=0; i<vetor.Length; i++)
-        Console.Write("|"+vetor[i]); //todos os valores armazenados separados por |
-
+        BibliotecaVetor.lerVetor(vetor);
+        BibliotecaVetor.mostrarVetor(vetor);
+        
         Console.WriteLine("|");
 
-        int quantidade = Vetor.quantidadeImpares(vetor);
-        Console.WriteLine($"Quantidade de impares: "+quantidade);
+        int quantidade = quantidadeImpares(vetor);
+
+        Console.WriteLine("Quantidade de impares: " +quantidade);
     }
     
 }

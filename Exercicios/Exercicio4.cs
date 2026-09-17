@@ -1,13 +1,26 @@
 using System;
-using BibliotecaFuncoes;
 
 /*4. Dado um vetor de n números reais, crie uma função que retorne o menor elemento do vetor, apresente o
 vetor.*/
 class Exercicio4
 {
+    static double menorElemento(double[] vetor)
+        {
+            double menor = vetor[0];
+                for(int i=1; i<vetor.Length; i++)
+                {
+                    if (vetor[i] < menor)
+                    {
+                        menor = vetor[i];
+                    }
+        
+                }
+                return menor; 
+        }
+
     static void Main(string[] args)
     {
-        Console.WriteLine("Digite a quantidade de elementos do vetor: ");
+        Console.Write("Digite a quantidade de elementos do vetor: ");
         int N = int.Parse(Console.ReadLine());
 
         double[] vetor = new double[N];
@@ -24,7 +37,7 @@ class Exercicio4
 
         Console.WriteLine("|");
 
-        double menor = Vetor.menorElemento(vetor);
+        double menor = menorElemento(vetor);
         Console.WriteLine($"Menor Elemento: "+menor);
 
     }
